@@ -1,0 +1,37 @@
+@mixin ellipsis($line: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  line-clamp: $line;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin background-cover {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+@mixin long-shadow($length, $shadow-color) {
+  $shadow: "";
+  @for $i from 1 through $length {
+    @if $i == 1 {
+      $shadow: #{$i}px #{$i}px #{$shadow-color};
+    } @else {
+      $shadow: "#{$shadow} , #{$i}px #{$i}px #{$shadow-color}";
+    }
+  }
+  text-shadow: #{$shadow};
+}
+@mixin dot($size: 5px, $bgcolor: #fff) {
+  content: "";
+  display: block;
+  width: $size;
+  height: $size;
+  background-color: $bgcolor;
+  border-radius: 100px;
+}
